@@ -40,7 +40,7 @@ import com.badlogic.gdx.utils.Array;
 public class SkinEditorGame extends Game {
 	
 	
-	public final static String[] widgets = { "Label","Button","TextButton", "ImageButton", "CheckBox", "TextField",  "List", "SelectBox", "ProgressBar", "Slider", "ScrollPane", "SplitPane", "Window", "Touchpad", "Tree" };
+	public final static String[] widgets = { "Label","Button","TextButton", "ImageButton", "CheckBox", "TextField",  "List", "SelectBox", "ProgressBar", "Slider", "ScrollPane", "SplitPane", "Window", "Touchpad", "Tree","ImageTextButton" };
 
 	public SpriteBatch batch;
 	public Skin skin;
@@ -62,7 +62,7 @@ public class SkinEditorGame extends Game {
 	
 	
 	private final static String projectsRawDir 	= ".skineditor_projects";
-	private static String projectsPath 		= "c:/"; //absolute 
+	private static String projectsPath 		= "Z:/Dysk Google/TEAM.X/_Clipped/projects/Trivia/skin/"; //absolute 
 	
 	private static String projectsExportPath = null;
 	
@@ -137,7 +137,7 @@ public class SkinEditorGame extends Game {
 			atlas = new TextureAtlas(resourceDir.child("uiskin.atlas"));
 			
 			 
-			skin.addRegions(new TextureAtlas(resourceDir.child("uiskin.atlas")));
+			skin.addRegions(new TextureAtlas(resourceDir.child("uiskin-editor").child("uiskin-editor.atlas")));
 			skin.load(resourceDir.child("uiskin.json"));
 			
 			screenMain = new MainScreen(this);

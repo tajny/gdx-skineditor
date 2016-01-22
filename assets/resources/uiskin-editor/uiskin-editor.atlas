@@ -225,6 +225,13 @@ widgets/ImageButton
   orig: 48, 48
   offset: 0, 0
   index: -1
+widgets/ImageTextButton
+  rotate: false
+  xy: 99, 1
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
 widgets/Label
   rotate: false
   xy: 148, 1

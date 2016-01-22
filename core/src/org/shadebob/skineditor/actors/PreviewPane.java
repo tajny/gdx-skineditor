@@ -25,6 +25,7 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.List;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
@@ -87,15 +88,13 @@ public class PreviewPane extends Table {
 		ImageButton button = (ImageButton) game.screenMain.barWidgets.group.getChecked();
 		String widget = button.getUserObject().toString();
 		String widgetStyle = "com.badlogic.gdx.scenes.scene2d.ui." + widget + "$" + widget + "Style";
-
-		
+		System.out.println(widget+"=>"+widgetStyle+" => checked:"+button);
 
 		try {
 			Class<?> style = Class.forName(widgetStyle);
-
 			ObjectMap<String, ?> styles = game.skinProject.getAll(style);
 			if (styles == null) {
-				Label label = new Label("No styles defined for this widget type", game.skin, "error");
+				Label label = new Label("No styles defined for this widget type (widgetStyle."+widgetStyle+" style."+style+")", game.skin, "error");
 				add(label).row().pad(10);
 
 			} else {
@@ -132,6 +131,11 @@ public class PreviewPane extends Table {
 					} else if (widget.equals("ImageButton")) { // ImageButton
 
 						ImageButton w = new ImageButton(game.skinProject, key);
+						add(w).pad(10).padBottom(20).row();
+
+					} else if (widget.equals("ImageTextButton")) { // ImageButton
+
+						ImageTextButton w = new ImageTextButton(key, game.skinProject);
 						add(w).pad(10).padBottom(20).row();
 
 					} else if (widget.equals("CheckBox")) { // CheckBox

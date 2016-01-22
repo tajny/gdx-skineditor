@@ -120,6 +120,15 @@ public class Skin implements Disposable {
 		} catch (SerializationException ex) {
 			throw new SerializationException("Error reading file: " + skinFile, ex);
 		}
+		
+		
+		
+		
+		//after load 
+		
+
+//		add("def", new TintedDrawable(), ImageTextButton.class);
+		
 	}
 
 	/** Store all resources in the specified skin JSON file. */
@@ -153,6 +162,8 @@ public class Skin implements Disposable {
 		items.add(com.badlogic.gdx.scenes.scene2d.ui.ProgressBar.ProgressBarStyle.class);
 		items.add(com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle.class);
 		items.add(com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle.class);
+		items.add(com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton.ImageTextButtonStyle.class);
+		
 		items.add(com.badlogic.gdx.scenes.scene2d.ui.SplitPane.SplitPaneStyle.class);
 		items.add(com.badlogic.gdx.scenes.scene2d.ui.Touchpad.TouchpadStyle.class);
 		items.add(com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle.class);
@@ -177,6 +188,9 @@ public class Skin implements Disposable {
 			// iterators with getObjetName function.
 
 			Array<String> styles = new Array<String>();
+			
+			System.out.println("processing "+name+", item:"+item);
+			
 			Iterator itStyles = typeResources.keys().iterator();
 			while (itStyles.hasNext()) {
 				String style = (String) itStyles.next();
@@ -320,6 +334,11 @@ public class Skin implements Disposable {
 			TintedDrawable td = (TintedDrawable) resource;
 			add(name, td.drawable, Drawable.class);
 		}
+		
+		 
+		//... missing Text
+		
+		
 		
 		if (name == null)
 			throw new IllegalArgumentException("name cannot be null.");
