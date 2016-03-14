@@ -179,6 +179,10 @@ public class MainScreen implements Screen {
 	 */
 	public void refreshResources() {
 		
+		try {
+			
+		 
+		
 		TexturePacker.Settings settings = new TexturePacker.Settings();
 		settings.combineSubdirectories = true;
 		settings.maxWidth = 2048;
@@ -194,6 +198,9 @@ public class MainScreen implements Screen {
 		game.skinProject.addRegions(new TextureAtlas(SkinEditorGame.getProjectsDirectory().child(currentProject).child("uiskin.atlas")));
 		game.skinProject.load(SkinEditorGame.getProjectsDirectory().child(currentProject).child("uiskin.json"));
 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

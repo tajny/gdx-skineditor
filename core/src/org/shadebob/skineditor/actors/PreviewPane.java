@@ -18,6 +18,7 @@ package org.shadebob.skineditor.actors;
 import org.shadebob.skineditor.SkinEditorGame;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g3d.model.Node;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -77,11 +78,20 @@ public class PreviewPane extends Table {
 
 	}
 
+	
+	@Override
+	protected void drawChildren(Batch batch, float parentAlpha) {
+		super.drawChildren(batch, parentAlpha);
+		
+		
+		
+	}
+	
 	/**
 	 * 
 	 */
 	public void refresh() {
-
+		
 		Gdx.app.log("PreviewPane", "Refresh pane!");
 		clear();
 
@@ -107,10 +117,11 @@ public class PreviewPane extends Table {
 				sortedKeys.sort();
 
 				for (String key : sortedKeys) {
-
+					
 					// We render one per key
 					add(new Label(key, game.skin, "title")).left().pad(10).expandX().row();
-
+					
+					
 					try {
 					if (widget.equals("Label")) {
 
@@ -135,7 +146,7 @@ public class PreviewPane extends Table {
 
 					} else if (widget.equals("ImageTextButton")) { // ImageButton
 
-						ImageTextButton w = new ImageTextButton(key, game.skinProject);
+						ImageTextButton w = new ImageTextButton(key, game.skinProject,key);
 						add(w).pad(10).padBottom(20).row();
 
 					} else if (widget.equals("CheckBox")) { // CheckBox
