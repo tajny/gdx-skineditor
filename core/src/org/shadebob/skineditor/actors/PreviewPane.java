@@ -190,7 +190,18 @@ public class PreviewPane extends Table {
 
 					} else if (widget.equals("ProgressBar")) { // ProgressBar
 
-						ProgressBar w = new ProgressBar(0, 100, 5, false, game.skinProject, key);
+						ProgressBar w = new ProgressBar(0, 100, 5, false, game.skinProject, key) {
+							
+							@Override
+							public void draw(Batch batch, float parentAlpha) {
+								try {
+									super.draw(batch, parentAlpha);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
+							}
+							
+						};
 						w.setValue(50);
 						w.addListener(stopTouchDown);
 
